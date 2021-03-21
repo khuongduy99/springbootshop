@@ -85,5 +85,9 @@ import javax.persistence.MappedSuperclass;
 			this.status = status;
 		}
 
+		public void setId(Long id) {
+			this.id = id;
+		}
+
 		
 }

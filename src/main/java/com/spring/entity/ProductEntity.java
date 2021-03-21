@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "product")
 public class ProductEntity extends BaseEntity {
@@ -30,10 +32,12 @@ public class ProductEntity extends BaseEntity {
 	private int qty;
 
 	@Column(columnDefinition = "boolean default false")
-	private boolean isNew;
+	@Type(type = "org.hibernate.type.NumericBooleanType")
+	private boolean isNew = false;
 
 	@Column(columnDefinition = "boolean default false")
-	private double isHot;
+	@Type(type = "org.hibernate.type.NumericBooleanType")
+	private boolean isHot = false;
 
 	@Column
 	private long views;
@@ -111,12 +115,13 @@ public class ProductEntity extends BaseEntity {
 	public void setNew(boolean isNew) {
 		this.isNew = isNew;
 	}
-
-	public double getIsHot() {
+	
+	
+	public boolean isHot() {
 		return isHot;
 	}
 
-	public void setIsHot(double isHot) {
+	public void setHot(boolean isHot) {
 		this.isHot = isHot;
 	}
 

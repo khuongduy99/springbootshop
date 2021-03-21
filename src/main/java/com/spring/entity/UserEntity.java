@@ -1,6 +1,7 @@
 package com.spring.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -21,6 +22,9 @@ public class UserEntity extends BaseEntity {
 	
 	@Column
 	private String password;
+	
+	@Column
+	private Date lastLogin;
 
 	@OneToMany(mappedBy = "user")
 	private List<ReviewEntity> listReview;
@@ -60,6 +64,16 @@ public class UserEntity extends BaseEntity {
 		this.password = password;
 	}
 
+	
+
+	public Date getLastLogin() {
+		return lastLogin;
+	}
+
+	public void setLastLogin(Date lastLogin) {
+		this.lastLogin = lastLogin;
+	}
+
 	public List<ReviewEntity> getListReview() {
 		return listReview;
 	}
@@ -67,6 +81,5 @@ public class UserEntity extends BaseEntity {
 	public void setListReview(List<ReviewEntity> listReview) {
 		this.listReview = listReview;
 	}
-	
 	
 }

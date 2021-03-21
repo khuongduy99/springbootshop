@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "category")
 public class CategoryEntity extends BaseEntity {
@@ -14,8 +16,9 @@ public class CategoryEntity extends BaseEntity {
 	@Column
 	private String name;
 	
-	@Column
-	private String isAccessory;
+	@Column(columnDefinition = "boolean default false")
+	@Type(type = "org.hibernate.type.NumericBooleanType")
+	private boolean isAccessory = false;
 	
 	@OneToMany(mappedBy = "category")
 	private List<BrandEntity> listBrand;
@@ -32,11 +35,11 @@ public class CategoryEntity extends BaseEntity {
 		this.name = name;
 	}
 
-	public String getIsAccessory() {
+	public boolean isAccessory() {
 		return isAccessory;
 	}
 
-	public void setIsAccessory(String isAccessory) {
+	public void setAccessory(boolean isAccessory) {
 		this.isAccessory = isAccessory;
 	}
 
