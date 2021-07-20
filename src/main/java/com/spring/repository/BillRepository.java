@@ -34,5 +34,6 @@ public interface BillRepository extends JpaRepository<BillEntity, Long>{
 	
 	BillEntity findOneByCode(String code);
 
-	BillEntity findOne(Long id);
+	BillEntity findOneById(Long id);
+
 }

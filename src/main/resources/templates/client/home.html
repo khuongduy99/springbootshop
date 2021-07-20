@@ -196,11 +196,11 @@
 	                                        <img th:src="${model.urlImage}" alt="">
 	                                        <ul class="icons">
 	                                            <a class="wish-list"><i class="fa fa-heart-o"></i></a>
-	                                            <a class="cart" th:onclick="${'addToCart(' + model.id +', 1);'}"><i class="fa fa-shopping-cart"></i></a>
+	                                            <a class="cart" th:onclick="|addToCart('${model.id}', '1')|"><i class="fa fa-shopping-cart"></i></a>
 	                                        </ul>
 	                                        <div class="product-label">
 	                                            <span th:if="${model.sale != 0}" class="sale"><span class="price-product" th:utext=${model.price}></span><span class="sale-product" th:utext=${model.sale}></span></span>
-	                                            <span th:if="${model.new}" class="new">MỚI</span>
+	                                            <span th:utext="${model.new}" class="new">MỚI</span>
 	                                        </div>
 	                                    </div>
 	                                    <div class="product-body">

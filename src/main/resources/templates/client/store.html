@@ -130,7 +130,7 @@
                                         <img th:src="${model.urlImage}" alt="">
                                         <ul class="icons">
                                             <a class="wish-list"><i class="fa fa-heart-o"></i></a>
-                                            <a class="cart" th:onclick="${'addToCart(' + model.id +', 1);'}"><i class="fa fa-shopping-cart"></i></a>
+                                            <a class="cart" th:onclick="|addToCart('${model.id}', '1')|"><i class="fa fa-shopping-cart"></i></a>
                                         </ul>
                                         <div class="product-label">
                                             <span th:if="${model.sale != 0}" class="sale"><span class="price-product" th:utext=${model.price}></span><span class="sale-product" th:utext=${model.sale}></span></span>
@@ -178,9 +178,9 @@
                         <li class="active">1</li>
                         <th:block th:if="${totalPage > 1}">		
                         <th:block th:each="i: ${#numbers.sequence(2, totalPage)}">
-                        	 <li><a th:onclick="${'getProductPagn(' + limit +',' + (limit * (i - 1))+');'}" th:utext="${i}"></a></li>
+                        	 <li><a th:onclick="|getProductPagn(${limit}, ${limit * (i - 1)});|" th:utext="${i}"></a></li>
                         </th:block>
-                        <li><a th:onclick="${'getProductPagn(' + limit +',' + (limit)+');'}"><i class="fa fa-angle-right"></i></a></li>
+                        <li><a th:onclick="|getProductPagn(${limit}, ${limit});|"><i class="fa fa-angle-right"></i></a></li>
                         </th:block>
                     </ul>
                 </div>

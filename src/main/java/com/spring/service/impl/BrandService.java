@@ -169,7 +169,7 @@ public class BrandService implements IBrandService{
 
 	@Transactional(propagation = Propagation.MANDATORY)
 	public void deleteOne(Long id) throws BrandTransactionException {
-		BrandEntity isExist = brandRepository.findOne(id);
+		BrandEntity isExist = brandRepository.findOneById(id);
 		if(isExist == null) {
 			throw new BrandTransactionException("Không tồn tại");
 		}

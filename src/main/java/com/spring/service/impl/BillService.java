@@ -67,7 +67,7 @@ public class BillService implements IBillService{
 
 	@Override
 	public MessageAlertModel update(BillDTO dto) {
-		BillEntity entity = billRepository.findOne(dto.getId());
+		BillEntity entity = billRepository.findOneById(dto.getId());
 		if(entity == null) return new MessageAlertModel("danger", "Đơn hàng không tồn tại", new Date());
 		
 		entity.setStatus(dto.getStatus());
@@ -128,7 +128,7 @@ public class BillService implements IBillService{
 
 	@Override
 	public BillDTO findOneById(Long id) {
-		BillEntity entity = billRepository.findOne(id);
+		BillEntity entity = billRepository.findOneById(id);
 		if (entity == null)
 			return null;
 		return modelMapper.map(entity, BillDTO.class);

@@ -41,28 +41,4 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		this.redirectStrategy = redirectStrategy;
 	}
 	
-//	private String determineTargetUrl(Authentication authentication) {
-//		String url = "/";
-//		List<String> roles = SecurityUtils.getAuthorities();
-//		if (isAdmin(roles)) {
-//			url = "/admin-page";
-//		} else if (isUser(roles)) {
-//			url = "/";
-//		}
-//		return url;
-//	}
-	
-//	private boolean isAdmin(List<String> roles) {
-//		if (roles.contains("admin")) {
-//			return true;
-//		}
-//		return false;
-//	}
-//	
-//	private boolean isUser(List<String> roles) {
-//		if (roles.contains("user")) {
-//			return true;
-//		}
-//		return false;
-//	}
 }

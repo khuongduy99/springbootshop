@@ -70,6 +70,14 @@ public class AuthenticController {
 		return "redirect:/trangchu";
 	}
 	
+	@RequestMapping(value = "/loginsucess", method = RequestMethod.GET)
+	public String loginsucess(HttpServletRequest request, HttpServletResponse response, Model model) {
+		UserModel myUser = (UserModel) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
+		String targetUrl = myUser.getUrlPageRedirectLoginSuccess();
+		
+		return "redirect:" + targetUrl;
+	}
+	
 	@RequestMapping(value = "/cap-nhat-tai-khoan", method = RequestMethod.GET)
 	public String updateUser(HttpServletRequest request, Model model) {
 		UserModel myUser = (UserModel) SessionUtil.getInstance().getValue(request, "UserModel");

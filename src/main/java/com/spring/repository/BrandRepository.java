@@ -16,5 +16,5 @@ public interface BrandRepository extends JpaRepository<BrandEntity, Long>{
 	@Query(value = "SELECT b.* FROM brand b JOIN category c ON b.category_id = c.id WHERE c.alias = ?1 AND c.status = ?2 AND b.status = ?3", nativeQuery = true)
 	List<BrandEntity> findAllByCategoryAliasAndStatus(String categoryAlias, String statusCategory, String statusBrand);
 
-	BrandEntity findOne(Long id);
+	BrandEntity findOneById(Long id);
 }

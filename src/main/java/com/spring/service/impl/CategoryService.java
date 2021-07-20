@@ -66,7 +66,7 @@ public class CategoryService implements ICategoryService {
 
 	@Override
 	public CategoryDTO findOneById(Long id) {
-		CategoryEntity entity = categoryRepository.findOne(id);
+		CategoryEntity entity = categoryRepository.findOneById(id);
 		if (entity == null)
 			return null;
 		return modelMapper.map(entity, CategoryDTO.class);
@@ -145,7 +145,7 @@ public class CategoryService implements ICategoryService {
 	
 	@Transactional(propagation = Propagation.MANDATORY)
 	public void deleteOne(Long id) throws CategoryTransactionException {
-		CategoryEntity isExist = categoryRepository.findOne(id);
+		CategoryEntity isExist = categoryRepository.findOneById(id);
 		if(isExist == null) {
 			throw new CategoryTransactionException("Không tồn tại");
 		}

@@ -39,7 +39,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		}
 		List<GrantedAuthority> authorities = new ArrayList<>();
 		for (RoleEntity role: userEntity.getListRole()) {
-			authorities.add(new SimpleGrantedAuthority(role.getAlias()));
+			authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getAlias().toUpperCase()));
 		}
 		UserModel myUser = new UserModel(userEntity.getEmail(), userEntity.getPassword(), 
 							true, true, true, true, authorities);
@@ -60,6 +60,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         	roles.add(authority.getAuthority());
         }
         if(isAdmin(roles)) myUser.setAdmin(true);
+		
 		return myUser;
 	}
 	
@@ -70,8 +71,4 @@ public class CustomUserDetailsService implements UserDetailsService {
 		return false;
 	}
 	
-	public static void main(String[] args) {
-		String username = "vcctvt";
-		System.out.println(username.split("2410dt1408")[0]);
-	}
 }
