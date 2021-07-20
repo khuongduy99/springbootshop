@@ -20,7 +20,67 @@ $(function () {
     });
 
     //Advanced Form Validation
-    $('#form_advanced_validation').validate({
+    $('#form_validation_1').validate({
+        rules: {
+            'date': {
+                customdate: true
+            },
+            'creditcard': {
+                creditcard: true
+            }
+        },
+        highlight: function (input) {
+            $(input).parents('.form-line').addClass('error');
+        },
+        unhighlight: function (input) {
+            $(input).parents('.form-line').removeClass('error');
+        },
+        errorPlacement: function (error, element) {
+            $(element).parents('.form-group').append(error);
+        }
+    });
+    
+    $('#form_validation_2').validate({
+        rules: {
+            'date': {
+                customdate: true
+            },
+            'creditcard': {
+                creditcard: true
+            }
+        },
+        highlight: function (input) {
+            $(input).parents('.form-line').addClass('error');
+        },
+        unhighlight: function (input) {
+            $(input).parents('.form-line').removeClass('error');
+        },
+        errorPlacement: function (error, element) {
+            $(element).parents('.form-group').append(error);
+        }
+    });
+    
+    $('#form_validation_3').validate({
+        rules: {
+            'date': {
+                customdate: true
+            },
+            'creditcard': {
+                creditcard: true
+            }
+        },
+        highlight: function (input) {
+            $(input).parents('.form-line').addClass('error');
+        },
+        unhighlight: function (input) {
+            $(input).parents('.form-line').removeClass('error');
+        },
+        errorPlacement: function (error, element) {
+            $(element).parents('.form-group').append(error);
+        }
+    });
+    
+    $('#form_validation_4').validate({
         rules: {
             'date': {
                 customdate: true

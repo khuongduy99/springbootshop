@@ -29,6 +29,9 @@ $(function () {
     $demoMaskedInput.find('.money-dollar').inputmask('99,99 $', { placeholder: '__,__ $' });
     //Euro Money
     $demoMaskedInput.find('.money-euro').inputmask('99,99 €', { placeholder: '__,__ €' });
+    
+  //Dollar Money
+    $demoMaskedInput.find('.money-vnđ').inputmask('99,999,999 VNĐ', { placeholder: '__,___,___ VNĐ' });
 
     //IP Address
     $demoMaskedInput.find('.ip').inputmask('999.999.999.999', { placeholder: '___.___.___.___' });

@@ -3403,6 +3403,21 @@ section.content {
   opacity: 1;
   border: none;
   text-shadow: none; }
+  
+  .alert-dismissible{
+  animation: shake-animation 3s ease infinite;
+}
+
+@keyframes shake-animation {
+   0% { transform:translate(0,0) }
+  1.78571% { transform:translate(5px,0) }
+  3.57143% { transform:translate(0,0) }
+  5.35714% { transform:translate(5px,0) }
+  7.14286% { transform:translate(0,0) }
+  8.92857% { transform:translate(5px,0) }
+  10.71429% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
 
 /* Dialogs (SweetAlert) ======================== */
 .sweet-alert {
@@ -5023,7 +5038,7 @@ section.content {
       padding-left: 10px; }
   .input-group .help-info {
     float: right;
-    font-size: 12px;
+    font-size: 10px;
     margin-top: 5px;
     color: #999; }
   .input-group label.error {
@@ -7562,7 +7577,7 @@ fieldset[disabled] .form-control {
     white-space: nowrap;
     position: relative;
     border-bottom: 1px solid #e9e9e9;
-    background: url("../images/user-img-background.jpg") no-repeat no-repeat;
+    background: url("/admin/images/Ảnh Khác/user-img-background.jpg") no-repeat no-repeat;
     height: 135px; }
     .sidebar .user-info .image {
       margin-right: 12px;

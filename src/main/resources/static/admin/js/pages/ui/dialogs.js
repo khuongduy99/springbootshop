@@ -1,39 +1,3 @@
-$(function () {
-    $('.js-sweetalert button').on('click', function () {
-        var type = $(this).data('type');
-        if (type === 'basic') {
-            showBasicMessage();
-        }
-        else if (type === 'with-title') {
-            showWithTitleMessage();
-        }
-        else if (type === 'success') {
-            showSuccessMessage();
-        }
-        else if (type === 'confirm') {
-            showConfirmMessage();
-        }
-        else if (type === 'cancel') {
-            showCancelMessage();
-        }
-        else if (type === 'with-custom-icon') {
-            showWithCustomIconMessage();
-        }
-        else if (type === 'html-message') {
-            showHtmlMessage();
-        }
-        else if (type === 'autoclose-timer') {
-            showAutoCloseTimerMessage();
-        }
-        else if (type === 'prompt') {
-            showPromptMessage();
-        }
-        else if (type === 'ajax-loader') {
-            showAjaxLoaderMessage();
-        }
-    });
-});
-
 //These codes takes from http://t4t5.github.io/sweetalert/
 function showBasicMessage() {
     swal("Here's a message!");
@@ -43,8 +7,8 @@ function showWithTitleMessage() {
     swal("Here's a message!", "It's pretty, isn't it?");
 }
 
-function showSuccessMessage() {
-    swal("Good job!", "You clicked the button!", "success");
+function showSuccessMessage(mes) {
+    swal(mes, "", "success");
 }
 
 function showConfirmMessage() {
@@ -58,6 +22,36 @@ function showConfirmMessage() {
         closeOnConfirm: false
     }, function () {
         swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    });
+}
+
+function showConfirmDelete(ids) {
+    swal({
+        title: "Bạn Có Chắc Muốn Xóa?",
+        text: "Bạn sẽ không thể khôi phục nếu xác nhận có.",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Có, hãy xóa nó!",
+        cancelButtonText: "Không!",
+        closeOnConfirm: false
+    }, function () {
+    	remove(ids);
+    });
+}
+
+function showConfirmDeleteFile(ids) {
+    swal({
+        title: "Bạn Có Chắc Muốn Xóa?",
+        text: "Bạn sẽ không thể khôi phục nếu xác nhận có.",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Có, hãy xóa nó!",
+        cancelButtonText: "Không!",
+        closeOnConfirm: false
+    }, function () {
+    	removeFile(ids);
     });
 }
 
@@ -136,5 +130,41 @@ function showAjaxLoaderMessage() {
         setTimeout(function () {
             swal("Ajax request finished!");
         }, 2000);
+    });
+}
+
+function showAjaxBlockUser(id) {
+    swal({
+        title: "Khóa tài khoản",
+        text: "Tài khoản sẽ bị khóa đến khi nào bạn mở khóa lại.",
+        type: "warning",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Ok!",
+        cancelButtonText: "Hủy!",
+    }, function () {
+        setTimeout(function () {
+        	blockUser(id);
+        }, 1000);
+    });
+}
+
+function showAjaxUnBlockUser(id) {
+    swal({
+        title: "Mở khóa tài khoản",
+        text: "Tài khoản sẽ được mở khóa",
+        type: "info",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+        confirmButtonColor: "#337AB7",
+        confirmButtonText: "Ok!",
+        cancelButtonText: "Hủy!",
+    }, function () {
+        setTimeout(function () {
+        	unBlockUser(id);
+        }, 1000);
     });
 }
